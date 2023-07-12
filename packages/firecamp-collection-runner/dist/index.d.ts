@@ -1,18 +1,16 @@
-declare enum ERunnerEvents {
-    Start = "start",
-    BeforeRequest = "beforeRequest",
-    Request = "request",
-    Done = "done"
-}
+import { IRunnerOptions } from './types.js';
+export { ERunnerEvents, IRunStatistics } from './types.js';
+import '@firecamp/types';
+
 declare class Runner {
     private collection;
     private options;
-    private requestOrdersForExecution;
-    private executedRequestQueue;
-    private currentRequestInExecution;
+    private folderRunSequence;
     private testResults;
     private emitter;
-    constructor(collection: any, options: any);
+    private runStatistics;
+    constructor(collection: any, options: IRunnerOptions);
+    private assignDefaultOptions;
     /**
      * validate that the collection format is valid
      * TODO: late we need to add the zod or json schema here for strong validation
@@ -21,17 +19,16 @@ declare class Runner {
      * @returns boolean
      */
     private validate;
-    /**
-     * prepare an Set of request execution order
-     */
-    private prepareRequestExecutionOrder;
-    private executeRequest;
-    i: number;
-    private start;
-    private exposeOnlyOn;
+    private prepareFolderRunSequence;
+    private updateResponseStatistics;
+    private runRequest;
+    private runFolder;
+    private runRootRequests;
+    private runIteration;
     run(): {
         on: (evt: string, fn: (...a: any[]) => void) => any;
     };
+    private exposeOnlyOn;
 }
 
-export { ERunnerEvents, Runner as default };
+export { IRunnerOptions, Runner as default };

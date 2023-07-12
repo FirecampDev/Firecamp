@@ -123,7 +123,7 @@
     "requests": [
         {
             "url": {
-                "raw": "http://localhost:3000/get?foo1=bar1&foo2=bar2",
+                "raw": "{{host}}/get?foo1=bar1&foo2=bar2",
                 "queryParams": [
                     {
                         "id": "RRMgDmGWwOa9ZwpijZiWj",
@@ -190,7 +190,7 @@
         },
         {
             "url": {
-                "raw": "http://localhost:3000/post",
+                "raw": "{{host}}/post",
                 "queryParams": [],
                 "pathParams": []
             },
@@ -253,7 +253,7 @@
         },
         {
             "url": {
-                "raw": "http://localhost:3000/post",
+                "raw": "{{host}}/post",
                 "queryParams": [],
                 "pathParams": []
             },
